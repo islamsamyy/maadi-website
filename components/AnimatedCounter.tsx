@@ -7,11 +7,13 @@ export function AnimatedCounter({
   suffix = "",
   prefix = "",
   duration = 1800,
+  decimals = 0,
 }: {
   end: number;
   suffix?: string;
   prefix?: string;
   duration?: number;
+  decimals?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [count, setCount] = useState(0);
@@ -43,7 +45,7 @@ export function AnimatedCounter({
       const progress = Math.min((timestamp - startTime) / duration, 1);
       // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * end));
+      setCount(eased * end);
       if (progress < 1) {
         frameId = requestAnimationFrame(step);
       } else {
@@ -55,10 +57,14 @@ export function AnimatedCounter({
     return () => cancelAnimationFrame(frameId);
   }, [hasStarted, end, duration]);
 
+  const formatted = decimals > 0 
+    ? count.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+    : Math.floor(count).toLocaleString();
+
   return (
     <span ref={ref} className="tabular-nums">
       {prefix}
-      {count.toLocaleString()}
+      {formatted}
       {suffix}
     </span>
   );

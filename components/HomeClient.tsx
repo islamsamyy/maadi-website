@@ -6,6 +6,7 @@ import type { Stone, Project, AcademyArticle } from "@/lib/types";
 import { useQuote } from "@/components/QuoteContext";
 import { Reveal } from "@/components/Reveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { HomeInteractiveSections } from "@/components/HomeInteractiveSections";
 
 const SURFACE_FINISHES = [
   {
@@ -45,7 +46,7 @@ const SURFACE_FINISHES = [
 export function HomeClient({ stones, projects, articles }: { stones: Stone[]; projects: Project[]; articles: AcademyArticle[] }) {
   const { favorites, toggleFavorite, addToQuote } = useQuote();
   const [activeFinish, setActiveFinish] = useState(SURFACE_FINISHES[0]);
-  const [stoneFilter, setStoneFilter] = useState<"All" | "Marble" | "Granite">("All");
+  const [stoneFilter, setStoneFilter] = useState<"All" | "Marble" | "Granite" | "Travertine" | "Limestone">("All");
   const featuredStones = stones.filter((s) =>
     stoneFilter === "All" ? true : s.type === stoneFilter
   ).slice(0, 6);
@@ -292,6 +293,28 @@ export function HomeClient({ stones, projects, articles }: { stones: Stone[]; pr
           </div>
         </div>
 
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-2">
+            {(["All", "Marble", "Granite", "Travertine", "Limestone"] as const).map((type) => (
+              <button
+                key={type}
+                type="button"
+                onClick={() => setStoneFilter(type)}
+                className={`px-4 py-2 rounded-full font-label-md text-xs uppercase tracking-wider transition-all ${
+                  stoneFilter === type
+                    ? "bg-primary text-on-primary shadow-sm"
+                    : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container"
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+          <Link href="/stones" className="font-label-md text-xs uppercase tracking-wider text-secondary hover:underline">
+            View Full Catalog →
+          </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
           {featuredStones.map((stone, idx) => {
             const isFav = favorites.includes(stone.slug);
@@ -474,6 +497,8 @@ export function HomeClient({ stones, projects, articles }: { stones: Stone[]; pr
           </div>
         </div>
       </section>
+
+      <HomeInteractiveSections stones={stones} />
     </div>
   );
 }

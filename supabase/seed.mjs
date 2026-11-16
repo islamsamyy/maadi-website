@@ -368,7 +368,7 @@ async function main() {
         password: "MaadiAdmin2026!",
         email_confirm: true,
         user_metadata: {
-          full_name: "Tarek El-Masry",
+          full_name: "Ahmed Salah",
           company: "Maadi Marble",
         },
       });
@@ -380,7 +380,7 @@ async function main() {
   if (adminUser) {
     const { error: profErr } = await supabase
       .from("profiles")
-      .update({ role: "admin", full_name: "Tarek El-Masry", company: "Maadi Marble" })
+      .update({ role: "admin", full_name: "Ahmed Salah", company: "Maadi Marble" })
       .eq("id", adminUser.id);
     if (profErr) throw profErr;
     console.log("Promoted admin profile:", adminEmail);

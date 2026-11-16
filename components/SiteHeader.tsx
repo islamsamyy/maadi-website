@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useQuote } from "./QuoteContext";
@@ -16,6 +17,11 @@ const NAV_ITEMS = [
 export function SiteHeader() {
   const pathname = usePathname();
   const { favorites, quoteItems } = useQuote();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -86,7 +92,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/request-price"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#C59B27] hover:bg-secondary text-white font-label-md text-[12px] font-semibold tracking-wide shadow-sm transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#C59B27] hover:bg-secondary text-white font-label-md text-[12px] font-semibold tracking-wide shadow-sm transition-all"
             >
               <span>Ask sales for a price</span>
               {quoteItems.length > 0 && (
@@ -95,9 +101,93 @@ export function SiteHeader() {
                 </span>
               )}
             </Link>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open navigation menu"
+              className="lg:hidden w-9 h-9 rounded-full bg-primary text-on-primary hover:bg-secondary flex items-center justify-center transition-colors"
+            >
+              <span className="material-symbols-outlined text-[20px]">menu</span>
+            </button>
           </div>
         </div>
       </header>
+
+      {/* Responsive Side Menu Drawer */}
+      <div
+        className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div
+          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+          onClick={() => setMenuOpen(false)}
+        />
+        <aside
+          className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-surface shadow-2xl border-l border-outline-variant/30 flex flex-col justify-between p-6 transition-transform duration-300 ease-out ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="space-y-6">
+            <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+              <Link href="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
+                <img alt="Maadi Marble logo" className="h-8 w-auto object-contain" src="/logo.png" />
+                <span className="font-headline-sm text-[15px] font-semibold uppercase tracking-wider text-primary">
+                  Maadi Marble
+                </span>
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close navigation menu"
+                className="w-9 h-9 rounded-full bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-primary transition-colors"
+              >
+                <span className="material-symbols-outlined text-[20px]">close</span>
+              </button>
+            </div>
+
+            <nav className="flex flex-col gap-1.5">
+              {NAV_ITEMS.map((item) => {
+                const isActive =
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`px-4 py-3 rounded-xl font-label-md text-[15px] flex items-center justify-between transition-all ${
+                      isActive
+                        ? "bg-primary text-on-primary font-semibold shadow-sm"
+                        : "text-on-surface-variant hover:bg-surface-container-low hover:text-primary"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    <span className="material-symbols-outlined text-[18px] opacity-60">chevron_right</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          <div className="space-y-3 pt-6 border-t border-outline-variant/30">
+            <Link
+              href="/request-price"
+              onClick={() => setMenuOpen(false)}
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#C59B27] hover:bg-secondary text-white font-label-md text-[13px] font-semibold shadow-sm transition-all"
+            >
+              <span className="material-symbols-outlined text-[18px]">calculate</span>
+              <span>Ask sales for a price</span>
+              {quoteItems.length > 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-black/20 text-[11px] font-technical-mono">
+                  {quoteItems.length}
+                </span>
+              )}
+            </Link>
+          </div>
+        </aside>
+      </div>
 
       {/* Floating Right Quick-Action Dock */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-2.5">
