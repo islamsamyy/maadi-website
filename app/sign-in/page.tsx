@@ -27,17 +27,21 @@ function SignInForm() {
     const supabase = createClient();
 
     if (mode === "signin") {
-      const { error: signInErr } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (signInErr) {
-        setError(signInErr.message);
+      try {
+        const { error: signInErr } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        if (signInErr) {
+          setError(signInErr.message);
+          setLoading(false);
+          return;
+        }
+        window.location.assign(nextPath);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to sign in.");
         setLoading(false);
-        return;
       }
-      router.push(nextPath);
-      router.refresh();
     } else {
       const { data, error: signUpErr } = await supabase.auth.signUp({
         email,
