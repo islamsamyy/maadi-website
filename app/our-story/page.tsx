@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Our Story & Heritage | Maadi Marble",
@@ -16,7 +17,7 @@ export default function OurStoryPage() {
 {/* Breadcrumb & Tag Row */}
 <div className="flex flex-wrap items-center justify-between gap-4 pb-space-lg">
 <nav aria-label="Breadcrumb" className="flex items-center gap-2 font-technical-mono text-technical-mono text-on-surface-variant uppercase tracking-wider">
-<a className="hover:text-primary transition-colors" href="/">Home</a>
+<Link className="hover:text-primary transition-colors" href="/">Home</Link>
 <span>/</span>
 <span className="hover:text-primary transition-colors">Heritage &amp; Legacy</span>
 <span>/</span>
@@ -244,7 +245,7 @@ export default function OurStoryPage() {
 </div>
 <h3 className="font-title-md text-title-md text-primary mb-2">Commissioning of Shaq El-Thoaban Works</h3>
 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-              Relocating heavy sawing operations to Cairo's dedicated stone corridor. Installation of the first multi-blade Breton gang-saws from Italy, elevating export slab manufacturing capacity from hand-splitting to 12,000 square meters monthly.
+              Relocating heavy sawing operations to Cairo&apos;s dedicated stone corridor. Installation of the first multi-blade Breton gang-saws from Italy, elevating export slab manufacturing capacity from hand-splitting to 12,000 square meters monthly.
             </p>
 </div>
 <div className="pt-space-lg mt-space-md flex items-center justify-between text-on-surface-variant font-technical-mono text-technical-mono">
@@ -349,7 +350,7 @@ export default function OurStoryPage() {
 <div>
 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">The Quarry Director</span>
 <h3 className="font-headline-sm text-headline-sm text-primary mt-1 mb-2">Amr Abdel-Rahman</h3>
-<p className="font-title-md text-title-md italic text-on-surface mb-3">"Listening to the Mountain's Tension"</p>
+<p className="font-title-md text-title-md italic text-on-surface mb-3">&ldquo;Listening to the Mountain&apos;s Tension&rdquo;</p>
 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                 By tapping the stone face with acoustic brass hammers, Amr detects microscopic internal shear planes before a diamond wire ever engages the block, preserving natural block integrity.
               </p>
@@ -372,7 +373,7 @@ export default function OurStoryPage() {
 <div>
 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Chief Dry-Lay Specialist</span>
 <h3 className="font-headline-sm text-headline-sm text-primary mt-1 mb-2">Mina Shenouda</h3>
-<p className="font-title-md text-title-md italic text-on-surface mb-3">"The Architectural Cadence of Veins"</p>
+<p className="font-title-md text-title-md italic text-on-surface mb-3">&ldquo;The Architectural Cadence of Veins&rdquo;</p>
 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                 Mina oversees slab sequencing, butterfly matching, and tonal grading. He harmonizes variation across thousands of square meters so that lobby installations form an unbroken natural canvas.
               </p>
@@ -395,7 +396,7 @@ export default function OurStoryPage() {
 <div>
 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Senior Sculptor &amp; CNC Artisan</span>
 <h3 className="font-headline-sm text-headline-sm text-primary mt-1 mb-2">Hajj Mahmoud El-Sayed</h3>
-<p className="font-title-md text-title-md italic text-on-surface mb-3">"Bridging Pharaonic Relief with Digital Tools"</p>
+<p className="font-title-md text-title-md italic text-on-surface mb-3">&ldquo;Bridging Pharaonic Relief with Digital Tools&rdquo;</p>
 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                 Trained in the historical workshops of Old Cairo, Hajj Mahmoud translates 3D parametric CAD models into monumental monolithic bathtubs, fluted cornices, and tactile bush-hammered surfaces.
               </p>
@@ -434,7 +435,7 @@ export default function OurStoryPage() {
 <div>
 <span className="font-technical-mono text-technical-mono text-secondary uppercase tracking-widest">[ CHAPTER 04 ]</span>
 <h2 className="font-headline-lg text-headline-lg text-primary tracking-tight mt-1 mb-3">
-              Ecological Custodianship: Preserving Egypt's Geological Future
+              Ecological Custodianship: Preserving Egypt&apos;s Geological Future
             </h2>
 <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
               We extract stone that took 100 million years to crystallize. That geological timeline demands an ethical duty of care that extends centuries forward. Our quarry restoration and plant operations operate under four strict environmental mandates.
@@ -498,7 +499,7 @@ export default function OurStoryPage() {
 <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto">
 <span className="material-symbols-outlined text-secondary text-[48px] mb-space-md">format_quote</span>
 <blockquote className="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-surface-bright tracking-tight leading-snug font-serif mb-space-xl">
-            "Natural stone is not simply a construction material; it is compressed geological time, captured sunlight, and the tangible memory of the earth. Our duty is not to dominate it, but to unveil its quiet grandeur for spaces that will outlast us all."
+            &ldquo;Natural stone is not simply a construction material; it is compressed geological time, captured sunlight, and the tangible memory of the earth. Our duty is not to dominate it, but to unveil its quiet grandeur for spaces that will outlast us all.&rdquo;
           </blockquote>
 <div className="flex flex-col items-center">
 {/* Formal Gold Calligraphic Signature Divider */}

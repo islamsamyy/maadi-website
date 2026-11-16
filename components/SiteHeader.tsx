@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useQuote } from "./QuoteContext";
@@ -17,11 +17,9 @@ const NAV_ITEMS = [
 export function SiteHeader() {
   const pathname = usePathname();
   const { favorites, quoteItems } = useQuote();
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  const [menuOpenPath, setMenuOpenPath] = useState<string | null>(null);
+  const menuOpen = menuOpenPath === pathname;
+  const setMenuOpen = (open: boolean) => setMenuOpenPath(open ? pathname : null);
 
   return (
     <>

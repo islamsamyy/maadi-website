@@ -182,7 +182,7 @@ export default function ContactPage() {
 <h2 className="font-headline-lg text-headline-md md:text-headline-lg text-primary">Nile Valley to Mediterranean &amp; Red Sea Corridors</h2>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant max-w-md">
-          Continuous transit channels linking Cairo's heavy industrial zones to Alexandria, Port Said, and Ain Sokhna for immediate dispatch.
+          Continuous transit channels linking Cairo&apos;s heavy industrial zones to Alexandria, Port Said, and Ain Sokhna for immediate dispatch.
         </p>
 </div>
 {/* Hubs Grid */}
@@ -199,7 +199,7 @@ export default function ContactPage() {
               Executive offices, board suites, international contracts legal division, and luxury material curatorial gallery overlooking the Nile.
             </p>
 <div className="pt-2 flex flex-col gap-1.5 font-technical-mono text-technical-mono text-on-surface-variant">
-<span>GPS: 29°57'35.2"N 31°15'04.8"E</span>
+<span>GPS: 29°57&apos;35.2&quot;N 31°15&apos;04.8&quot;E</span>
 <span>Hours: Sun – Thu · 08:30 – 18:00 CLT</span>
 <span>Phone: +20 2 2520 8900</span>
 </div>
@@ -223,7 +223,7 @@ export default function ContactPage() {
               45,000 m² industrial facility housing 14 Breton gang saws, computerized resin lines, waterjet calibration, and 2,500 m² enclosed dry-lay hall.
             </p>
 <div className="pt-2 flex flex-col gap-1.5 font-technical-mono text-technical-mono text-on-surface-variant">
-<span>GPS: 29°54'12.0"N 31°18'45.0"E</span>
+<span>GPS: 29°54&apos;12.0&quot;N 31°18&apos;45.0&quot;E</span>
 <span>Operations: 24/7 Continuous Gangsaw Milling</span>
 <span>Container Yard: 80 FCL Ready-to-Ship Capacity</span>
 </div>
