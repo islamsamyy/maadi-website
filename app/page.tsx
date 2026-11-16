@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import {
   getPublishedStones,
   getPublishedProjects,
@@ -5,7 +6,7 @@ import {
 } from "@/lib/queries";
 import { HomeClient } from "@/components/HomeClient";
 
-export default async function HomePage() {
+async function HomeContent() {
   const [stones, projects, articles] = await Promise.all([
     getPublishedStones(),
     getPublishedProjects(),
@@ -13,4 +14,12 @@ export default async function HomePage() {
   ]);
 
   return <HomeClient stones={stones} projects={projects} articles={articles} />;
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-surface" />}>
+      <HomeContent />
+    </Suspense>
+  );
 }
