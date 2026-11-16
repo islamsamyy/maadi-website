@@ -2,8 +2,6 @@ import { redirect } from "next/navigation";
 import { getCurrentProfile } from "@/lib/queries";
 import { AdminShell } from "@/components/AdminShell";
 
-export const instant = false;
-
 export default async function AdminLayout({
   children,
 }: {

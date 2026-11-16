@@ -3,8 +3,6 @@ import { redirect } from "next/navigation";
 import { getCurrentProfile, getMyQuoteRequests } from "@/lib/queries";
 import { SignOutButton } from "@/components/SignOutButton";
 
-export const instant = false;
-
 export default async function AccountPage() {
   const profile = await getCurrentProfile();
   if (!profile) {
