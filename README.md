@@ -31,27 +31,6 @@ A modern B2B/B2C natural stone catalog, smart visualization suite, and consolida
 
 ---
 
-## Quick Start
-
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-2. **Configure environment variables:**
-   Copy `.env.example` to `.env.local` and fill in your Supabase credentials:
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-   SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-   ```
-
-3. **Run database migration & seed:**
-   Apply `supabase/migrations/0001_initial_schema.sql` in your Supabase SQL Editor, then run:
-   ```bash
-   node supabase/seed.mjs
-   node supabase/verify.mjs
-   ```
 
 4. **Start the development server:**
    ```bash
