@@ -1,6 +1,6 @@
 # Maadi Marble — Natural Stone & Marble Export Platform
 
-A modern B2B/B2C natural stone catalog, smart visualization suite, and consolidated **Request-for-Quotation (RFQ)** platform built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Supabase (PostgreSQL + Auth + RLS)**.
+A modern B2B/B2C natural stone catalog, smart visualization suite, and consolidated **Request-for-Quotation (RFQ)**
 
 ---
 
